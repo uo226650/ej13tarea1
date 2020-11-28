@@ -54,7 +54,19 @@ class MapaDinamico{
     lector.onload = function (evento) {
       this.procesaKML(lector.result);
     }.bind(this);
-    lector.readAsText(archivo);
+    if (archivo.type == "application/vnd.google-earth.kml+xml"){
+      lector.readAsText(archivo);
+      //Limpia el campo "error" en caso de que exista
+      if (document.getElementsByClassName("error").length > 0)//Si está presente el mensaje de error
+        document.getElementsByClassName("error")[0].remove();
+    } 
+    else{
+      var errorElem = document.createElement("p");
+      errorElem.setAttribute("class", "error");
+      errorElem.innerText = "El archivo no está en formato kml y no se puede representar";
+      document.getElementById("map").before(errorElem);
+    }
+    
   }
 }
 
