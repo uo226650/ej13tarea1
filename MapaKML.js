@@ -1,5 +1,5 @@
 //AIzaSyC8aUp4J8B-MOmk6mg4A8cSsbE3qzEpB1g
-
+//Problemas de accesibilidad en el marco del mapa dinámico de Google Maps
 class MapaDinamico{
 
   initMap(){
